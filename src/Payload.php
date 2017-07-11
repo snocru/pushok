@@ -314,7 +314,7 @@ class Payload implements \JsonSerializable
         }
 
         if (count($this->customValues)) {
-            $payload[self::PAYLOAD_ROOT_KEY][self::CUSTOM_PROPERTIES_KEY] = array_merge($payload, $this->customValues);
+            $payload[self::PAYLOAD_ROOT_KEY][self::CUSTOM_PROPERTIES_KEY] = $this->customValues;
         }
 
         return $payload;

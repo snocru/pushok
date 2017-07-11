@@ -82,7 +82,7 @@ class PayloadTest extends TestCase
 
         $this->assertJsonStringEqualsJsonString(
             '{"aps": {"alert": {"title": "title"}, "badge": 1, "sound": "sound", "category": "category", ' .
-            ' "thread-id": "tread-id", "content-available": 1}, "key": "value"}',
+            ' "thread-id": "tread-id", "content-available": 1, "custom_properties": {"key": "value"}}}',
             $payload->toJson()
         );
     }
