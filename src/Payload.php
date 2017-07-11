@@ -28,6 +28,7 @@ class Payload implements \JsonSerializable
     const PAYLOAD_CONTENT_AVAILABLE_KEY = 'content-available';
     const PAYLOAD_CATEGORY_KEY = 'category';
     const PAYLOAD_THREAD_ID_KEY = 'thread-id';
+    const CUSTOM_PROPERTIES_KEY = 'custom_properties';
 
     const PAYLOAD_HTTP2_REGULAR_NOTIFICATION_MAXIMUM_SIZE = 4096;
     const PAYLOAD_HTTP2_VOIP_NOTIFICATION_MAXIMUM_SIZE = 5120;
@@ -313,7 +314,7 @@ class Payload implements \JsonSerializable
         }
 
         if (count($this->customValues)) {
-            $payload = array_merge($payload, $this->customValues);
+            $payload[self::PAYLOAD_ROOT_KEY][self::CUSTOM_PROPERTIES_KEY] = array_merge($payload, $this->customValues);
         }
 
         return $payload;
